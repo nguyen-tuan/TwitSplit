@@ -1,4 +1,4 @@
-const invalidCommand = 'ERROR: Invalid command'
+const invalidCommand = 'ERROR: Invalid command';
 const notFound = 'ERROR: Key not found'
 const notIntersection = 'No intersection among all set stored'
 const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]/;
