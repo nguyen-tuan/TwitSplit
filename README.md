@@ -7,4 +7,5 @@ Component2(input): the users type characters.
 -command EXPIRE: set timeout for keykey, it means when query this key will wait for a number of seconds equal to the number of seconds of the timeout to appear.
 -command SAVE (save current state in a snapshot): curent state is key and value or is history-command? where it store?
 -command RESTORE: don't know how to do it :'( :'(.
--command SINTER: interested with this command. 
+-command SINTER: interested with this command.
+-I have many ideas to implement but there are some problems so I can't do it. 

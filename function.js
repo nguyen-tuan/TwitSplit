@@ -36,6 +36,7 @@ function createText(text) {
 
   divText.appendChild(textCommand)
   historyCommand.appendChild(divText)
+  historyCommand.scrollTop = historyCommand.scrollHeight;  
 }
 
 function removeCommand() {

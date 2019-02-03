@@ -59,9 +59,9 @@ body {
 }
 
 .icon-image {
-  position: absolute;
-  right: 5px;
-  top: 0;
+  position: fixed;
+  right: 20px;
+  top: 8px;
 }
 
 .material-icons {
