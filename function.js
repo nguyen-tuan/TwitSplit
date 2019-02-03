@@ -123,7 +123,7 @@ function checkCommand() {
         break;
 
       case 'SAVE':
-        snapshot()
+        snapshot({ info })
         break;
 
       default:
@@ -148,12 +148,16 @@ function showImage() {
   }
 }
 
-function snapshot() {
-  html2canvas(document.body).then(function(canvas) {
-    const image = document.querySelector('.image-snapshot')
-    image.src = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream")
-    createText('Press image preview to see this snapshot')    
-  });
+function snapshot({ info }) {
+  if (info.length === 1) {
+    html2canvas(document.body).then(function(canvas) {
+      const image = document.querySelector('.image-snapshot')
+      image.src = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream")
+      createText('Press image preview to see this snapshot')    
+    });    
+  } else {
+    createText(invalidCommand)    
+  }
 }
 
 function queryTimeout({ info }) {
