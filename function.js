@@ -1,6 +1,7 @@
 const invalidCommand = 'ERROR: Invalid command';
 const notFound = 'ERROR: Key not found'
 const notIntersection = 'No intersection among all set stored'
+const noTimeout = 'No timeout of a key'
 const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]/;
 let oldCommand = ''
 
@@ -120,6 +121,8 @@ function checkCommand() {
         queryTimeout({ info })
         break;
 
+      default:
+        createText(invalidCommand)    
       
     }
   }
@@ -144,11 +147,11 @@ function queryTimeout({ info }) {
 
 function getCookie(name) {
   var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)')
-  return v ? v[2] : null
+  return v ? v[2] : noTimeout
 }
 
 function deleteCookie(name) { 
-  setCookie(name, '', -1)
+  document.cookie = `${name}=`
 }
 
 function timeoutOfKey({ info }) {
