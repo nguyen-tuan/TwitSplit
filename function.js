@@ -4,6 +4,7 @@ const notIntersection = 'No intersection among all set stored'
 const noTimeout = 'No timeout of a key'
 const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]/;
 let oldCommand = ''
+let isShowPreview = false
 
 document.addEventListener('keydown', (e) => {
   if (e.which === 13) {
@@ -121,11 +122,38 @@ function checkCommand() {
         queryTimeout({ info })
         break;
 
+      case 'SAVE':
+        snapshot()
+        break;
+
       default:
         createText(invalidCommand)    
       
     }
   }
+}
+
+function closeImage() {
+  const preview = document.querySelector('.preview')
+  preview.classList.remove('show')        
+}
+
+function showImage() {
+  const image = document.querySelector('.image-snapshot')
+  if (image.src) {
+    const preview = document.querySelector('.preview')
+    preview.classList.add('show')
+  } else {
+    alert('No image to preview')
+  }
+}
+
+function snapshot() {
+  html2canvas(document.body).then(function(canvas) {
+    const image = document.querySelector('.image-snapshot')
+    image.src = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream")
+    createText('Press image preview to see this snapshot')    
+  });
 }
 
 function queryTimeout({ info }) {
