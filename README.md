@@ -8,4 +8,4 @@ Component2(input): the users type characters.
 -command SAVE (save current state in a snapshot): curent state is key and value or is history-command? where it store?
 -command RESTORE: don't know how to do it :'( :'(.
 -command SINTER: interested with this command.
--I have many ideas to implement but there are some problems so I can't do it. 
+-I have many ideas to implement(examplemple: press arrow-up to get previous command, arrow-down to clear command) but there are some problems so I can't do it. 
